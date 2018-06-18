@@ -5,8 +5,11 @@
  */
 
 use App\DesignPatterns\Database\SqlQueryBuilder;
+use App\DesignPatterns\Models\User;
 use App\DesignPatterns\Models\UserFactory;
 use App\DesignPatterns\Security\AuthProtocolStaticFactory;
+use App\DesignPatterns\Services\InMemoryCache;
+use App\DesignPatterns\Services\NullCache;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -24,7 +27,11 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //
 //\var_dump($query);
 
-$userFactory = new UserFactory();
-$userFactory->createUser('tester1@example.com');
-$userFactory->createUser('tester2@example.com');
-$userFactory->createUser('tester1@example.com');
+//$userFactory = new UserFactory();
+//$userFactory->createUser('tester1@example.com');
+//$userFactory->createUser('tester2@example.com');
+//$userFactory->createUser('tester1@example.com');
+
+//$cache = new InMemoryCache();
+$cache = new NullCache();
+$user = new User('tester1@example.com', $cache);
