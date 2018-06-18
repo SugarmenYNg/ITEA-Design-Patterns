@@ -4,6 +4,7 @@
  * ITEA PHP: Design patterns
  */
 
+use App\DesignPatterns\Collection\ArrayCollection;
 use App\DesignPatterns\Database\SqlQueryBuilder;
 use App\DesignPatterns\Models\User;
 use App\DesignPatterns\Models\UserFactory;
@@ -33,5 +34,17 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$userFactory->createUser('tester1@example.com');
 
 //$cache = new InMemoryCache();
-$cache = new NullCache();
-$user = new User('tester1@example.com', $cache);
+//$cache = new NullCache();
+//$user = new User('tester1@example.com', $cache);
+
+$collection = new ArrayCollection(['PHP', 'JavaScript', 'C++', 'C', 'GoLang']);
+
+foreach ($collection as $value) {
+    \var_dump($value);
+}
+
+\var_dump(\count($collection));
+
+\var_dump($collection[2]);
+$collection[2] = 'C#';
+\var_dump($collection[2]);
