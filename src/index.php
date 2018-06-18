@@ -16,9 +16,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$v2->authenticate();
 
 $queryBuilder = new SqlQueryBuilder();
-$queryBuilder->select('id, first_name, created_at');
-$queryBuilder->from('user');
-$queryBuilder->where('nickname = vasya');
-$query = $queryBuilder->getQuery();
+$query = $queryBuilder->select('id, first_name, created_at')
+    ->from('user')
+    ->where('nickname = vasya')
+    ->getQuery();
 
 \var_dump($query);

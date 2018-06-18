@@ -14,16 +14,22 @@ class SqlQueryBuilder
     public function select($fields)
     {
         $this->fields = $fields;
+
+        return $this;
     }
 
     public function from($tableName)
     {
         $this->tableName = $tableName;
+
+        return $this;
     }
 
     public function where($condition)
     {
         $this->condition = $condition;
+
+        return $this;
     }
 
     public function getQuery()
